@@ -1,10 +1,31 @@
-import { useEffect, useState } from "react";
-import {io} from "socket.io-client";
+import { createContext, useContext, useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
-const socketProvider = () =>{
-    const [socket, setSocket] = useState(null)
+const SocketContext = createContext(null);
 
-    useEffect(() =>{
-        
-    })
+export const useSocket = () => {
+    const socket = useContext(SocketContext)
+    return socket
+}
+
+export const SocketProvider = (props) => {
+    const { children } = props;
+    const [socket, setSocket] = useState(null);
+
+    useEffect(() => {
+        const connection = io();
+        console.log('socket connection', connection)
+        setSocket(connection);
+    }, []);
+
+    socket?.on('connect_error', async (err) => {
+        console.log('Error establishing socket', err)
+        await fetch('/api/socket1¡')
+    });
+
+    return (<SocketContext.Provider value={socket}>
+
+        {children}
+
+    </SocketContext.Provider>)
 }
