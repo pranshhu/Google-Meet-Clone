@@ -20,7 +20,7 @@ export const SocketProvider = (props) => {
 
     socket?.on('connect_error', async (err) => {
         console.log('Error establishing socket', err)
-        await fetch('/api/socket1¡')
+        await fetch('/api/socket')
     });
 
     return (<SocketContext.Provider value={socket}>
