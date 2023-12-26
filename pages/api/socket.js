@@ -14,4 +14,4 @@ const SocketHandler = (req, res) => {
     res.end();
 }
 
-export default SocketHandler;
+export default SocketHandler;\

@@ -26,8 +26,8 @@ export default function Home() {
           <input placeholder='Enter Room ID' value={roomId} onChange={(e) => setRoomId(e?.target?.value)}/>
           <button onClick={joinRoom}>Join Room</button>
         </div>
-        <span  className='my-3 text-xl'>--------------- OR ---------------</span>
-        <button onClick={createAndJoin} className='bg-buttonPrimary py-2 px-4 rounded'>Create a new room</button>
+        <span  className={styles.separatorText} >--------------- OR ---------------</span>
+        <button onClick={createAndJoin}>Create a new room</button>
     </div>
   )
 }
