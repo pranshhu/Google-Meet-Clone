@@ -1,7 +1,6 @@
-import {useState, useEffect, useRef} from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-
-const useMediaStream = () => {
+const useMediaSteam = () => {
     const [state, setState] = useState(null)
     const isStreamSet = useRef(false)
 
@@ -14,10 +13,10 @@ const useMediaStream = () => {
                     audio: true,
                     video: true
                 })
-                console.log("setting your stream")
+                console.log('setting stream')
                 setState(stream)
             } catch (e) {
-                console.log("Error in media navigator", e)
+                console.log('error in media navigator', e)
             }
         })()
     }, [])
@@ -27,4 +26,4 @@ const useMediaStream = () => {
     }
 }
 
-export default useMediaStream
+export default useMediaSteam;
